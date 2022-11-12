@@ -1,24 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { ReactElement, FC} from 'react';
+
+
+interface CardI {
+  num: number;
+  text: string;
+}
+
+const Card: FC<CardI> = (props: CardI): ReactElement => {
+  return (
+    <p>{props.text.repeat(props.num)}</p>
+  )
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Card num ={3} text="Some text! "/>
     </div>
   );
 }
